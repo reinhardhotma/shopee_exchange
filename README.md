@@ -1,31 +1,18 @@
-# Sinatra boilerplate
+# Foreign Currency BE Exercise
 
-Boilerplate code for Sinatra applications inside a Docker container.
+## Database Design
 
-## Docker setup
+![DB Design](src/db_structure.png)
 
-Install docker: https://docs.docker.com/engine/installation/
+There are 2 tables, which are CONVERSIONS and CONVERSION_DETAILS
+The relationship between these two are CONVERSIONS has_many CONVERSION_DETAILS, and CONVERSION_DETAILS belongs_to CONVERSIONS
+Every detail in CONVERSION_DETAILS refers to CONVERSIONS by using the conversions_id
 
-Install Docker Compose: https://docs.docker.com/compose/install/
+## How-to
 
-Docker documentation: https://docs.docker.com/
+### How to run the program
 
-## Usage
-
-Create Docker containers for services: `docker-compose up --no-start`
-
-Install dependencies: `docker-compose run --rm web bundle install`
-
-Create and start Docker containers. Starts development server: `docker-compose up`. Use `-d` to start in detached mode: run container in the background
-
-Stops running containers without removing them: `docker-compose stop`
-
-Stop and remove Docker containers, networks, images, and volumes created by _up_: `docker-compose down`
-
-## Libraries included in the project
-
-- [ruby v2.5.3](https://www.ruby-lang.org)
-- [puma v3.12.0](https://github.com/puma/puma)
-- [sinatra v2.0.5](https://github.com/sinatra/sinatra)
-- [dotenv v2.5.0](https://github.com/bkeepers/dotenv)
-- [foreman v0.85.0](https://github.com/ddollar/foreman)
+1. Run the apps by using docker-compose:
+    ```
+    docker-compose up -d --build
+    ```

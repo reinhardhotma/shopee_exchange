@@ -1,0 +1,16 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: shopee
+  pool: 2
+  host: db
+  username: postgres
+  password: postgres
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: shopee
+  pool: 5
+  host: db
+  username: postgres
+  password: postgres

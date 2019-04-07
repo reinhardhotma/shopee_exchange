@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 
 gem 'puma', '3.12.0'
 gem 'sinatra', '2.0.5'
+gem 'pg'
+gem 'rake'
+gem 'sinatra-activerecord'
 
 group :development do
   gem 'dotenv', '2.5.0'

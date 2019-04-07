@@ -1,14 +1,14 @@
-version: "3"
+version: '3'
 services:
   web:
-    image: "ruby:2.5.3"
+    build: .
+    command: foreman start
     ports:
-      - "5000:5000"
-    environment:
-      LANG: "C.UTF-8"
-      LC_ALL: "C.UTF-8"
-      TZ: "Europe/Madrid"
+      - "4001:4001"
+    depends_on:
+      - db
+    entrypoint: ./entrypoint.sh
+  db:
+    image: postgres
     volumes:
-      - .:/web
-    working_dir: /web
-    command: bash -c "bundle install && foreman start"
+     - ./tmp/db:/var/lib/postgresql/data
